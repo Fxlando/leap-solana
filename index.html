@@ -392,6 +392,196 @@
             font-weight: bold;
             font-size: 0.9rem;
         }
+
+        .test-feature-btn {
+            width: 100%;
+            background: linear-gradient(45deg, #ff6b35, #ff8a56);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.8rem 1.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .test-feature-btn:hover {
+            background: linear-gradient(45deg, #ff8a56, #ffab77);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 107, 53, 0.3);
+        }
+
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: rgba(0, 0, 0, 0.95);
+            border: 2px solid #00ff88;
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow-y: auto;
+            position: relative;
+            animation: slideUp 0.3s ease;
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-title {
+            font-size: 1.8rem;
+            color: #00ff88;
+            text-shadow: 0 0 10px #00ff88;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #ff6b35;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .modal-close:hover {
+            color: #00ff88;
+            transform: rotate(90deg);
+        }
+
+        .demo-section {
+            margin: 1.5rem 0;
+            padding: 1rem;
+            background: rgba(255, 107, 53, 0.1);
+            border-left: 4px solid #ff6b35;
+            border-radius: 4px;
+        }
+
+        .demo-controls {
+            display: flex;
+            gap: 1rem;
+            margin: 1rem 0;
+            flex-wrap: wrap;
+        }
+
+        .demo-btn {
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            color: #000;
+            border: none;
+            border-radius: 6px;
+            padding: 0.6rem 1.2rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .demo-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .demo-output {
+            background: rgba(0, 0, 0, 0.8);
+            border: 1px solid #00ff88;
+            border-radius: 4px;
+            padding: 1rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.9rem;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .token-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.5rem;
+            margin: 0.3rem 0;
+            background: rgba(0, 255, 136, 0.1);
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+
+        .token-item:hover {
+            background: rgba(0, 255, 136, 0.2);
+        }
+
+        .wallet-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.8rem;
+            margin: 0.5rem 0;
+            background: rgba(255, 107, 53, 0.1);
+            border-radius: 6px;
+            border-left: 3px solid #ff6b35;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 0.5rem 0;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #00ff88, #00cc6a);
+            border-radius: 10px;
+            transition: width 2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #000;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes slideUp {
+            from { transform: translateY(50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                margin: 1rem;
+                max-width: calc(100vw - 2rem);
+            }
+            
+            .demo-controls {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
@@ -449,6 +639,7 @@
                 <div class="live-data">
                     LIVE: 47 new tokens detected | 12 bundle alerts active
                 </div>
+                <button class="test-feature-btn" data-feature="radar">🚀 Test Radar</button>
             </div>
 
             <div class="feature-card">
@@ -458,6 +649,7 @@
                 <div class="live-data">
                     Top Leaper: wallet_xyz123 | +847% this week | Last buy: $CHAOS
                 </div>
+                <button class="test-feature-btn" data-feature="wallet">💰 Test Tracker</button>
             </div>
 
             <div class="feature-card">
@@ -467,6 +659,7 @@
                 <div class="live-data">
                     $MOONSHOT: <span class="leap-score">🚀 LEAP 89</span> | High moon potential
                 </div>
+                <button class="test-feature-btn" data-feature="score">📊 Test Score</button>
             </div>
 
             <div class="feature-card">
@@ -476,6 +669,7 @@
                 <div class="live-data">
                     🧠 Pattern detected: Classic pump ladder on $DEGEN | Exit wallets loading...
                 </div>
+                <button class="test-feature-btn" data-feature="psychology">🧠 Test Psychology</button>
             </div>
 
             <div class="feature-card">
@@ -485,6 +679,7 @@
                 <div class="live-data">
                     Simulation: 0.5 SOL → 4.2 SOL (+740%) if sold at pump wallet exit
                 </div>
+                <button class="test-feature-btn" data-feature="simulator">📈 Test Simulator</button>
             </div>
 
             <div class="feature-card">
@@ -494,6 +689,7 @@
                 <div class="live-data">
                     🔥 "Bundler delay spotted on $ROCKET - about to leap!" - DegenKing420
                 </div>
+                <button class="test-feature-btn" data-feature="community">💬 Test Feed</button>
             </div>
         </div>
     </section>
@@ -519,6 +715,19 @@
             </div>
         </div>
     </section>
+
+    <!-- Modal Overlay for Feature Demos -->
+    <div class="modal-overlay" id="featureModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Feature Demo</h3>
+                <button class="modal-close" id="closeModal">&times;</button>
+            </div>
+            <div id="modalBody">
+                <!-- Dynamic content will be inserted here -->
+            </div>
+        </div>
+    </div>
 
     <footer class="footer" id="contact">
         <div class="footer-content">
@@ -734,6 +943,537 @@
             });
             observer.observe(statsSection);
         }
+
+        // Feature Demo System
+        const featureModal = document.getElementById('featureModal');
+        const modalTitle = document.getElementById('modalTitle');
+        const modalBody = document.getElementById('modalBody');
+        const closeModal = document.getElementById('closeModal');
+
+        // Demo content for each feature
+        const featureContent = {
+            radar: {
+                title: '🚀 Leap Radar Demo',
+                content: `
+                    <div class="demo-section">
+                        <h4>🔍 Live Token Detection</h4>
+                        <div class="demo-controls">
+                            <button class="demo-btn" onclick="scanForTokens()">🔎 Scan New Tokens</button>
+                            <button class="demo-btn" onclick="detectBundlers()">🔴 Detect Bundlers</button>
+                            <button class="demo-btn" onclick="trackSnipers()">⚡ Track Snipers</button>
+                        </div>
+                        <div class="demo-output" id="radarOutput">
+                            <div style="color: #00ff88;">🟢 Radar System Online - Ready to detect...</div>
+                        </div>
+                    </div>
+                    <div class="demo-section">
+                        <h4>📊 Detection Statistics</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="radarProgress" style="width: 0%">0% Scanned</div>
+                        </div>
+                        <p style="margin-top: 1rem;">Active Alerts: <span style="color: #ff6b35; font-weight: bold;" id="alertCount">0</span></p>
+                    </div>
+                `
+            },
+            wallet: {
+                title: '💰 Wallet Tracker Demo',
+                content: `
+                    <div class="demo-section">
+                        <h4>🔥 Top Leapers</h4>
+                        <div class="demo-controls">
+                            <button class="demo-btn" onclick="loadTopWallets()">📈 Load Top Performers</button>
+                            <button class="demo-btn" onclick="trackInfluencer()">👑 Track Influencer</button>
+                            <button class="demo-btn" onclick="analyzeTrades()">📊 Analyze Trades</button>
+                        </div>
+                        <div class="demo-output" id="walletOutput">
+                            <div style="color: #00ff88;">💼 Wallet Tracker Ready - Select a function...</div>
+                        </div>
+                    </div>
+                    <div class="demo-section">
+                        <h4>🎯 Tracking Status</h4>
+                        <div class="wallet-item">
+                            <span>DegenKing420</span>
+                            <span style="color: #00ff88;">+1,247% ROI</span>
+                        </div>
+                        <div class="wallet-item">
+                            <span>MoonShotMaster</span>
+                            <span style="color: #00ff88;">+892% ROI</span>
+                        </div>
+                    </div>
+                `
+            },
+            score: {
+                title: '📊 Leap Score Demo',
+                content: `
+                    <div class="demo-section">
+                        <h4>🎯 Token Analysis</h4>
+                        <div class="demo-controls">
+                            <button class="demo-btn" onclick="analyzeToken()">🔍 Analyze Token</button>
+                            <button class="demo-btn" onclick="calculateScore()">📊 Calculate Score</button>
+                            <button class="demo-btn" onclick="showFactors()">⚙️ Show Factors</button>
+                        </div>
+                        <div class="demo-output" id="scoreOutput">
+                            <div style="color: #00ff88;">📈 Score Calculator Ready...</div>
+                        </div>
+                    </div>
+                    <div class="demo-section">
+                        <h4>🚀 Current Score</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="scoreProgress" style="width: 0%; background: linear-gradient(45deg, #ff6b35, #ff8a56);">0/100</div>
+                        </div>
+                        <div style="margin-top: 1rem; color: #ff6b35;">
+                            <div>LP Strength: <span id="lpScore">--</span></div>
+                            <div>Wallet Distribution: <span id="walletScore">--</span></div>
+                            <div>Bot Activity: <span id="botScore">--</span></div>
+                        </div>
+                    </div>
+                `
+            },
+            psychology: {
+                title: '🧠 Psychology Map Demo',
+                content: `
+                    <div class="demo-section">
+                        <h4>🎭 Pattern Recognition</h4>
+                        <div class="demo-controls">
+                            <button class="demo-btn" onclick="detectPattern()">🧠 Detect Pattern</button>
+                            <button class="demo-btn" onclick="analyzeLadder()">📈 Analyze Ladder</button>
+                            <button class="demo-btn" onclick="predictExit()">🚪 Predict Exit</button>
+                        </div>
+                        <div class="demo-output" id="psychologyOutput">
+                            <div style="color: #00ff88;">🧠 Psychology Engine Online...</div>
+                        </div>
+                    </div>
+                    <div class="demo-section">
+                        <h4>📊 Pattern Confidence</h4>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="psychologyProgress" style="width: 0%">0% Confidence</div>
+                        </div>
+                        <div style="margin-top: 1rem;">
+                            <div class="signal green">🟢 Buy Ladder Detected</div>
+                            <div class="signal red">🔴 Pump Wallet Active</div>
+                            <div class="signal yellow">⚡ Exit Pattern Forming</div>
+                        </div>
+                    </div>
+                `
+            },
+            simulator: {
+                title: '📈 Volume Simulator Demo',
+                content: `
+                    <div class="demo-section">
+                        <h4>💰 Backtest Simulation</h4>
+                        <div class="demo-controls">
+                            <button class="demo-btn" onclick="runSimulation()">🎮 Run Simulation</button>
+                            <button class="demo-btn" onclick="testStrategy()">📊 Test Strategy</button>
+                            <button class="demo-btn" onclick="compareROI()">📈 Compare ROI</button>
+                        </div>
+                        <div class="demo-output" id="simulatorOutput">
+                            <div style="color: #00ff88;">🎮 Simulator Ready - Configure your test...</div>
+                        </div>
+                    </div>
+                    <div class="demo-section">
+                        <h4>📊 Simulation Results</h4>
+                        <div style="display: flex; justify-content: space-between; margin: 1rem 0;">
+                            <div>Initial: <span style="color: #ff6b35;">0.5 SOL</span></div>
+                            <div>Final: <span style="color: #00ff88;" id="finalAmount">-- SOL</span></div>
+                            <div>ROI: <span style="color: #00ff88;" id="roiAmount">--%</span></div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="simulatorProgress" style="width: 0%">Processing...</div>
+                        </div>
+                    </div>
+                `
+            },
+            community: {
+                title: '💬 Community Feed Demo',
+                content: `
+                    <div class="demo-section">
+                        <h4>🔥 Live Alpha Feed</h4>
+                        <div class="demo-controls">
+                            <button class="demo-btn" onclick="loadFeed()">📡 Load Feed</button>
+                            <button class="demo-btn" onclick="postAlpha()">📝 Post Alpha</button>
+                            <button class="demo-btn" onclick="filterSignals()">🎯 Filter Signals</button>
+                        </div>
+                        <div class="demo-output" id="communityOutput">
+                            <div style="color: #00ff88;">💬 Community Feed Loading...</div>
+                        </div>
+                    </div>
+                    <div class="demo-section">
+                        <h4>📊 Feed Statistics</h4>
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; text-align: center;">
+                            <div>
+                                <div style="color: #00ff88; font-size: 1.5rem; font-weight: bold;" id="activeUsers">247</div>
+                                <div style="color: #ff6b35;">Active Degens</div>
+                            </div>
+                            <div>
+                                <div style="color: #00ff88; font-size: 1.5rem; font-weight: bold;" id="alphaSignals">89</div>
+                                <div style="color: #ff6b35;">Alpha Signals</div>
+                            </div>
+                            <div>
+                                <div style="color: #00ff88; font-size: 1.5rem; font-weight: bold;" id="hotTokens">12</div>
+                                <div style="color: #ff6b35;">Hot Tokens</div>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        // Demo functions for Radar
+        window.scanForTokens = function() {
+            const output = document.getElementById('radarOutput');
+            const progress = document.getElementById('radarProgress');
+            const alertCount = document.getElementById('alertCount');
+            
+            output.innerHTML = '<div style="color: #ffa502;">🔍 Scanning blockchain for new tokens...</div>';
+            
+            let width = 0;
+            const interval = setInterval(() => {
+                width += 10;
+                progress.style.width = width + '%';
+                progress.textContent = width + '% Scanned';
+                
+                if (width >= 100) {
+                    clearInterval(interval);
+                    output.innerHTML = `
+                        <div class="token-item">
+                            <span>$MOONSHOT</span>
+                            <span style="color: #00ff88;">🟢 New Token Detected</span>
+                        </div>
+                        <div class="token-item">
+                            <span>$DEGEN</span>
+                            <span style="color: #ff4757;">🔴 Bundler Activity</span>
+                        </div>
+                        <div class="token-item">
+                            <span>$ROCKET</span>
+                            <span style="color: #ffa502;">⚡ Sniper Alert</span>
+                        </div>
+                    `;
+                    alertCount.textContent = '3';
+                }
+            }, 200);
+        };
+
+        window.detectBundlers = function() {
+            const output = document.getElementById('radarOutput');
+            output.innerHTML = `
+                <div style="color: #ff4757;">🔴 BUNDLER WAVE DETECTED!</div>
+                <div style="margin-top: 0.5rem;">Token: $CHAOS | Bundler Count: 47</div>
+                <div>Bundle Size: 0.1-2.5 SOL | Pattern: Classic Indian</div>
+                <div style="color: #ffa502; margin-top: 0.5rem;">⚠️ Caution: High manipulation risk detected</div>
+            `;
+        };
+
+        window.trackSnipers = function() {
+            const output = document.getElementById('radarOutput');
+            output.innerHTML = `
+                <div style="color: #ffa502;">⚡ SNIPER BOT ACTIVITY</div>
+                <div style="margin-top: 0.5rem;">Active Snipers: 23 | Success Rate: 89%</div>
+                <div>Avg Speed: 47ms | Target: New LP additions</div>
+                <div style="color: #00ff88; margin-top: 0.5rem;">🎯 Following sniper wallet: 7x9B...mK4D</div>
+            `;
+        };
+
+        // Demo functions for other features
+        window.loadTopWallets = function() {
+            const output = document.getElementById('walletOutput');
+            output.innerHTML = `
+                <div class="wallet-item">
+                    <div>
+                        <strong>DegenKing420</strong><br>
+                        <small>Last buy: $CHAOS (2min ago)</small>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="color: #00ff88;">+1,247% ROI</div>
+                        <div style="color: #ff6b35;">7 day streak</div>
+                    </div>
+                </div>
+                <div class="wallet-item">
+                    <div>
+                        <strong>MoonShotMaster</strong><br>
+                        <small>Last buy: $ROCKET (5min ago)</small>
+                    </div>
+                    <div style="text-align: right;">
+                        <div style="color: #00ff88;">+892% ROI</div>
+                        <div style="color: #ff6b35;">12 day streak</div>
+                    </div>
+                </div>
+            `;
+        };
+
+        window.trackInfluencer = function() {
+            const output = document.getElementById('walletOutput');
+            output.innerHTML = `
+                <div style="color: #ff6b35;">👑 Tracking Crypto Influencer: @SolanaAlpha</div>
+                <div style="margin-top: 0.5rem;">Recent Activity:</div>
+                <div style="margin: 0.5rem 0; padding: 0.5rem; background: rgba(0,255,136,0.1);">
+                    🔥 Bought 50 SOL of $LEAP (12min ago)<br>
+                    💬 Tweet: "This one's different, trust the process 🚀"
+                </div>
+                <div style="color: #00ff88;">Following 2,431 other degens copying this trade</div>
+            `;
+        };
+
+        window.analyzeTrades = function() {
+            const output = document.getElementById('walletOutput');
+            output.innerHTML = `
+                <div style="color: #ffa502;">📊 TRADE ANALYSIS COMPLETE</div>
+                <div style="margin-top: 0.5rem;">
+                    <div>Win Rate: 73% | Avg Hold Time: 2.3 hours</div>
+                    <div>Best Performance: $DEGEN (+2,847%)</div>
+                    <div>Favorite Entry: 0.1-0.5 SOL range</div>
+                    <div style="color: #ff6b35; margin-top: 0.5rem;">🎯 Pattern: Buy early, sell at 5-10x</div>
+                </div>
+            `;
+        };
+
+        window.analyzeToken = function() {
+            const output = document.getElementById('scoreOutput');
+            output.innerHTML = '<div style="color: #ffa502;">🔍 Analyzing $MOONSHOT token...</div>';
+            
+            setTimeout(() => {
+                output.innerHTML = `
+                    <div>Token: <strong>$MOONSHOT</strong></div>
+                    <div>Contract: 7xB9...mK4D</div>
+                    <div>Launch: 23min ago</div>
+                    <div style="color: #ff6b35; margin-top: 0.5rem;">⚠️ High risk factors detected</div>
+                `;
+            }, 1500);
+        };
+
+        window.calculateScore = function() {
+            const progress = document.getElementById('scoreProgress');
+            const lpScore = document.getElementById('lpScore');
+            const walletScore = document.getElementById('walletScore');
+            const botScore = document.getElementById('botScore');
+            
+            let score = 0;
+            const interval = setInterval(() => {
+                score += 5;
+                progress.style.width = score + '%';
+                progress.textContent = score + '/100';
+                
+                if (score >= 45) {
+                    clearInterval(interval);
+                    progress.style.background = 'linear-gradient(45deg, #ff6b35, #ff8a56)';
+                    lpScore.textContent = '65/100';
+                    walletScore.textContent = '23/100';
+                    botScore.textContent = '47/100';
+                }
+            }, 100);
+        };
+
+        window.showFactors = function() {
+            const output = document.getElementById('scoreOutput');
+            output.innerHTML = `
+                <div style="color: #ff6b35;">📊 SCORE BREAKDOWN</div>
+                <div style="margin-top: 0.5rem;">
+                    <div>✅ LP Locked: +15 points</div>
+                    <div>❌ Top 10 holders own 67%: -25 points</div>
+                    <div>⚠️ Moderate bot activity: -8 points</div>
+                    <div>✅ Active community: +12 points</div>
+                    <div style="color: #ffa502; margin-top: 0.5rem; font-weight: bold;">Final Score: 45/100 - MEDIUM RISK</div>
+                </div>
+            `;
+        };
+
+        // Add similar functions for other features...
+        window.detectPattern = function() {
+            const output = document.getElementById('psychologyOutput');
+            const progress = document.getElementById('psychologyProgress');
+            
+            output.innerHTML = '<div style="color: #ffa502;">🧠 Analyzing psychological patterns...</div>';
+            
+            let confidence = 0;
+            const interval = setInterval(() => {
+                confidence += 15;
+                progress.style.width = confidence + '%';
+                progress.textContent = confidence + '% Confidence';
+                
+                if (confidence >= 90) {
+                    clearInterval(interval);
+                    output.innerHTML = `
+                        <div style="color: #ff6b35;">🧠 INDIAN METHOD DETECTED</div>
+                        <div style="margin-top: 0.5rem;">
+                            <div>Pattern: Classic pump ladder</div>
+                            <div>Stage: 3/5 (Distribution phase)</div>
+                            <div>Exit wallets: Loading positions</div>
+                            <div style="color: #ffa502; margin-top: 0.5rem;">⚠️ Dump expected in 15-30min</div>
+                        </div>
+                    `;
+                }
+            }, 150);
+        };
+
+        window.analyzeLadder = function() {
+            const output = document.getElementById('psychologyOutput');
+            output.innerHTML = `
+                <div style="color: #00ff88;">📈 BUY LADDER ANALYSIS</div>
+                <div style="margin-top: 0.5rem;">
+                    <div>Steps detected: 7</div>
+                    <div>Volume pattern: Geometric increase</div>
+                    <div>Wallet behavior: Coordinated</div>
+                    <div style="color: #ff6b35; margin-top: 0.5rem;">🎯 Next step predicted at $0.0089</div>
+                </div>
+            `;
+        };
+
+        window.predictExit = function() {
+            const output = document.getElementById('psychologyOutput');
+            output.innerHTML = `
+                <div style="color: #ff4757;">🚪 EXIT PREDICTION</div>
+                <div style="margin-top: 0.5rem;">
+                    <div>Exit probability: 87%</div>
+                    <div>Timeframe: 12-18 minutes</div>
+                    <div>Trigger price: $0.0123</div>
+                    <div style="color: #ffa502; margin-top: 0.5rem;">⏰ Set alerts for pump wallet movements</div>
+                </div>
+            `;
+        };
+
+        window.runSimulation = function() {
+            const output = document.getElementById('simulatorOutput');
+            const progress = document.getElementById('simulatorProgress');
+            const finalAmount = document.getElementById('finalAmount');
+            const roiAmount = document.getElementById('roiAmount');
+            
+            output.innerHTML = '<div style="color: #ffa502;">🎮 Running backtest simulation...</div>';
+            progress.style.width = '0%';
+            
+            let sim = 0;
+            const interval = setInterval(() => {
+                sim += 10;
+                progress.style.width = sim + '%';
+                progress.textContent = 'Processing ' + sim + '%';
+                
+                if (sim >= 100) {
+                    clearInterval(interval);
+                    finalAmount.textContent = '4.2 SOL';
+                    roiAmount.textContent = '+740%';
+                    progress.textContent = 'Complete!';
+                    output.innerHTML = `
+                        <div style="color: #00ff88;">✅ SIMULATION COMPLETE</div>
+                        <div style="margin-top: 0.5rem;">
+                            <div>Entry: 0.5 SOL at $0.0012</div>
+                            <div>Exit: 4.2 SOL at $0.0089</div>
+                            <div>Hold time: 2.3 hours</div>
+                            <div style="color: #ff6b35; margin-top: 0.5rem;">🎯 Perfect timing on pump exit!</div>
+                        </div>
+                    `;
+                }
+            }, 150);
+        };
+
+        window.testStrategy = function() {
+            const output = document.getElementById('simulatorOutput');
+            output.innerHTML = `
+                <div style="color: #ff6b35;">📊 STRATEGY TEST</div>
+                <div style="margin-top: 0.5rem;">
+                    <div>Strategy: Follow DegenKing420</div>
+                    <div>Success rate: 73% over 30 days</div>
+                    <div>Avg ROI per trade: +247%</div>
+                    <div style="color: #00ff88; margin-top: 0.5rem;">✅ Strategy shows consistent alpha</div>
+                </div>
+            `;
+        };
+
+        window.compareROI = function() {
+            const output = document.getElementById('simulatorOutput');
+            output.innerHTML = `
+                <div style="color: #ffa502;">📈 ROI COMPARISON</div>
+                <div style="margin-top: 0.5rem;">
+                    <div>Manual trading: +89% (30 days)</div>
+                    <div>Following snipers: +342% (30 days)</div>
+                    <div>Leap Score >80: +567% (30 days)</div>
+                    <div style="color: #00ff88; margin-top: 0.5rem;">🏆 Leap Score method wins!</div>
+                </div>
+            `;
+        };
+
+        window.loadFeed = function() {
+            const output = document.getElementById('communityOutput');
+            output.innerHTML = `
+                <div class="wallet-item" style="margin: 0.3rem 0; padding: 0.5rem;">
+                    <div>
+                        <strong style="color: #00ff88;">DegenKing420</strong> • 2min ago<br>
+                        <small>"$ROCKET bundler delay spotted - about to leap! 🚀"</small>
+                    </div>
+                    <div style="color: #ff6b35;">🔥 23 likes</div>
+                </div>
+                <div class="wallet-item" style="margin: 0.3rem 0; padding: 0.5rem;">
+                    <div>
+                        <strong style="color: #ff6b35;">MoonShotMaster</strong> • 5min ago<br>
+                        <small>"Exit wallets loading on $CHAOS, be careful degens!"</small>
+                    </div>
+                    <div style="color: #ff6b35;">⚠️ 47 alerts</div>
+                </div>
+            `;
+        };
+
+        window.postAlpha = function() {
+            const output = document.getElementById('communityOutput');
+            output.innerHTML = `
+                <div style="color: #00ff88;">📝 Alpha Posted Successfully!</div>
+                <div style="margin-top: 0.5rem; padding: 0.5rem; background: rgba(0,255,136,0.1);">
+                    <strong>You</strong> • just now<br>
+                    <small>"New gem detected: $LEAP - Leap Score 89/100 🚀"</small>
+                </div>
+                <div style="color: #ff6b35; margin-top: 0.5rem;">📡 Broadcasted to 2,431 followers</div>
+            `;
+        };
+
+        window.filterSignals = function() {
+            const output = document.getElementById('communityOutput');
+            output.innerHTML = `
+                <div style="color: #ffa502;">🎯 Filtering for HIGH SIGNAL only...</div>
+                <div class="wallet-item" style="margin: 0.5rem 0; padding: 0.5rem; border: 2px solid #00ff88;">
+                    <div>
+                        <strong style="color: #00ff88;">CryptoWhale_87</strong> • 1min ago<br>
+                        <small>"🚨 MAJOR BAG ALERT: $MOONSHOT - insider info confirmed"</small>
+                    </div>
+                    <div style="color: #00ff88;">🎯 HIGH SIGNAL</div>
+                </div>
+                <div style="color: #ff6b35; margin-top: 0.5rem;">Filtered 89 posts → 1 high signal alert</div>
+            `;
+        };
+
+        // Event listeners for test buttons and modal
+        document.querySelectorAll('.test-feature-btn').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                const feature = this.getAttribute('data-feature');
+                openFeatureModal(feature);
+            });
+        });
+
+        function openFeatureModal(feature) {
+            const content = featureContent[feature];
+            if (content) {
+                modalTitle.textContent = content.title;
+                modalBody.innerHTML = content.content;
+                featureModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeFeatureModal() {
+            featureModal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal events
+        closeModal.addEventListener('click', closeFeatureModal);
+
+        featureModal.addEventListener('click', function(e) {
+            if (e.target === featureModal) {
+                closeFeatureModal();
+            }
+        });
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && featureModal.classList.contains('active')) {
+                closeFeatureModal();
+            }
+        });
     </script>
 </body>
 </html>
